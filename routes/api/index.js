@@ -1,10 +1,8 @@
 const router = require('express').Router()
+const tipsRoutes = require('./tips')
+
 const { readFromFile } = require('../../helpers/fsUtils');
 
-// GET Route for retrieving all the tips
-router.get('/tips', (req, res) => {
-  console.info(`${req.method} request received for tips`);
-  readFromFile('./db/tips.json').then((data) => res.json(JSON.parse(data)));
-});
+router.use('/tips', tipsRoutes)
 
 module.exports = router
