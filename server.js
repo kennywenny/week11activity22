@@ -16,13 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(routes)
 
-// GET Route for retrieving all the feedback
-app.get('/api/feedback', (req, res) => {
-  console.info(`${req.method} request received for feedback`);
-
-  readFromFile('./db/feedback.json').then((data) => res.json(JSON.parse(data)));
-});
-
 // POST Route for submitting feedback
 app.post('/api/feedback', (req, res) => {
   // Log that a POST request was received
