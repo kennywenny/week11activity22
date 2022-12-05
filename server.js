@@ -16,11 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(routes)
 
-// GET Route for retrieving all the tips
-app.get('/api/tips', (req, res) => {
-  console.info(`${req.method} request received for tips`);
-  readFromFile('./db/tips.json').then((data) => res.json(JSON.parse(data)));
-});
 
 // POST Route for a new UX/UI tip
 app.post('/api/tips', (req, res) => {
