@@ -15,10 +15,4 @@ router.get('/feedback', (req, res) =>
   res.sendFile(path.join(__dirname, '/../public/pages/feedback.html'))
 );
 
-// GET Route for retrieving all the tips
-router.get('/api/tips', (req, res) => {
-  console.info(`${req.method} request received for tips`);
-  readFromFile('./db/tips.json').then((data) => res.json(JSON.parse(data)));
-});
-
 module.exports = router
